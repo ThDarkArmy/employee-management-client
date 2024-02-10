@@ -148,7 +148,7 @@ export default function Register({ handleHaveAccount }) {
           }}
         >
           {error && <Alert severity="error">Error occured, while registeration</Alert>}
-        {success && <Alert severity="success">Registration successful, kindly proceed with login</Alert>}
+        {success && <Alert severity="success">Registration successful, kindly proceed with email verification with otp</Alert>}
           <Typography component="h1" variant="h5">
             Register
           </Typography>
