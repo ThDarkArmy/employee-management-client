@@ -76,6 +76,7 @@ export default function Header() {
           <Button onClick={()=> navigate("/")} sx={{ml: 1, color: "#fff", fontSize: 15, textTransform: 'none'}}>Home</Button>
           <Button onClick={()=> navigate("/leave-requests")} sx={{ml: 0.5, color: "#fff", fontSize: 15, textTransform: 'none'}}>Leave Requests</Button>
           <Button onClick={()=> navigate("/attendances")} sx={{ml: 0.5, color: "#fff", fontSize: 15, textTransform: 'none'}}><a style={{textDecoration: "none", color: "#fff"}}>Attendances</a></Button>
+          <Button onClick={()=> navigate("/salaries")} sx={{ml: 0.5, color: "#fff", fontSize: 15, textTransform: 'none'}}><a style={{textDecoration: "none", color: "#fff"}}>Salaries</a></Button>
           <Box sx={{flexGrow: 1}}></Box>
           {role && role.toUpperCase() === "MANAGER" && (
             <IconButton
@@ -88,14 +89,14 @@ export default function Header() {
             </IconButton>
           )}
 
-          {role && role.toUpperCase() === "EMPLOYEE" && (
+          {role && role.toUpperCase() === "ADMIN" && (
             <IconButton
-              title="Employee Panel"
-              onClick={() => navigate("/employee-panel")}
+              title="Admin Panel"
+              onClick={() => navigate("/admin-panel")}
               color="inherit"
               sx={{ marginLeft: 0 }}
             >
-             <MedicalServicesIcon sx={{color: "green"}}/>
+              <AdminPanelSettingsIcon sx={{ color: "green" }} />
             </IconButton>
           )}
 
