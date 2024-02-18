@@ -231,7 +231,7 @@ const LeaveRequests = () => {
             <Typography variant="h5" color="initial">
               Leave Requests
             </Typography>
-            <Button onClick={()=> setOpenAddForm(true)} variant="outlined" sx={{ml: "auto", color: "#fff", textTransform: "none"}}>Create Leave Request</Button>
+            <Button onClick={()=> setOpenAddForm(true)} variant="outlined" sx={{ml: "auto", textTransform: "none"}}>Create Leave Request</Button>
           </Box>
           <Box sx={{ mt: 2, overflowX: "auto" }}>
             <TableContainer component={Paper}>

@@ -235,7 +235,7 @@ const Attendances = () => {
             <Typography variant="h5" color="initial">
               Attendances
             </Typography>
-            <Button onClick={()=> setOpenAddForm(true)} variant="outlined" sx={{ml: "auto", color: "#fff", textTransform: "none"}}>Make Attendance</Button>
+            <Button onClick={()=> setOpenAddForm(true)} variant="outlined" sx={{ml: "auto", textTransform: "none"}}>Make Attendance</Button>
           </Box>
           <Box sx={{ mt: 2, overflowX: "auto" }}>
             <TableContainer component={Paper}>
