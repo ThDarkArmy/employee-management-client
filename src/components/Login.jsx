@@ -52,11 +52,12 @@ export default function Login({ handleHaveAccount }) {
         localStorage.setItem("email", response.data.user.email);
         localStorage.setItem("isLoggedIn", true);
         localStorage.setItem("role", response.data.user.role.toUpperCase());
-                navigate("/");
+        navigate("/");
       }
     } catch (err) {
+      console.log("Error: " + err.response.data.errorMessage);
       setError(true);
-      setErrorMessage("Login Failed");
+      setErrorMessage(err?.response?.data?.errorMessage);
       setTimeout(() => setError(false), 5000);
     }
   };

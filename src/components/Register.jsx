@@ -47,6 +47,7 @@ export default function Register({ handleHaveAccount }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
 
     let er = false;
@@ -122,7 +123,6 @@ export default function Register({ handleHaveAccount }) {
       if(response.data){
           setSuccess(true)
           setTimeout(()=>  handleHaveAccount(true), 3000)
-         
       }
 
       setTimeout(()=> setSuccess(false), 5000)

@@ -223,6 +223,25 @@ const AdminPanel = () => {
     }
   };
 
+  const verifyEmployee = async (email) => {
+    try {
+      const response = await axios({
+        method: "put",
+        url: BASE_URL + "/users/verify-user/"+email,
+        headers: {
+          "content-type": "application/json",
+          Authorization: "Bearer " + token,
+        }
+      });
+      if (response.data) {
+        loadEmployees();
+      }
+    } catch (err) {
+      setOpenErrorSnack(true);
+      setErrorMsg("Error occured while verifying employee");
+    }
+  }
+
 
   useEffect(() => {
     loadEmployees();
@@ -316,6 +335,7 @@ const AdminPanel = () => {
                             onClick={() => deleteSalary(row.id)}
                           />
                         </StyledTableCell>
+                        
                       </StyledTableRow>
                     ))}
                 </TableBody>
@@ -342,6 +362,7 @@ const AdminPanel = () => {
                     <StyledTableCell align="right">Role</StyledTableCell>
                     <StyledTableCell align="right">Address</StyledTableCell>
                     <StyledTableCell align="right">Actions</StyledTableCell>
+                    <StyledTableCell align="right">Verify</StyledTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -383,6 +404,13 @@ const AdminPanel = () => {
                             onClick={() => deleteEmployee(row.id)}
                           />
                         </StyledTableCell>
+                        <StyledTableCell align="right">
+                          <Button
+                            disabled={row.adminVerified}
+                            sx={{ cursor: "pointer", ml: 2, textDecoration: "none" }}
+                            onClick={() => verifyEmployee(row.email)}
+                          >{row.adminVerified ? "Verified": "Verify"}</Button>
+                        </StyledTableCell>
                       </StyledTableRow>
                     ))}
                 </TableBody>
@@ -393,7 +421,7 @@ const AdminPanel = () => {
       </Box>
 
       <Dialog open={openAddForm} onClose={() => setOpenAddForm(false)}>
-        <DialogTitle>Add Flat</DialogTitle>
+        <DialogTitle>pay Salary</DialogTitle>
         <DialogContent>
           {showValidationError && (
             <Alert severity="error">All the fields are mandatory</Alert>

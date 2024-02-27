@@ -29,7 +29,7 @@ const ForgetPassword = () => {
       });
 
       if (response.status === 200) {
-        alert("Password reset successfull");
+        alert("Please check the mail to verify reset password");
         console.log("Response Data", response.data);
         navigate("/login-register");
       } else {
